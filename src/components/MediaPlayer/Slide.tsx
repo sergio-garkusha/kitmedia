@@ -13,7 +13,7 @@ const Slide = ({ data, duration }: { data: SlideData; duration?: number }) => {
       }, 1000);
 
       return () => clearInterval(countdownInterval);
-    }, [duration]);
+    }, [data.id]);
   }
 
   let slide;
@@ -27,8 +27,11 @@ const Slide = ({ data, duration }: { data: SlideData; duration?: number }) => {
   } else if (data.type === "video") {
     slide = (
       <video
+        width={800}
+        height={600}
         src={data.src}
         controls={false}
+        muted
         autoPlay
       />
     );
@@ -36,7 +39,7 @@ const Slide = ({ data, duration }: { data: SlideData; duration?: number }) => {
 
   return (
     <div>
-      {duration && <div>{countdown} sec</div>}
+      {duration && <div style={{ margin: "0 0 5px 0" }}>{countdown} sec</div>}
       {slide}
     </div>
   );
