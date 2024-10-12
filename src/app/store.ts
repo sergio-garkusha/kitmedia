@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import sliderReducer from "../features/sliderSlice";
+import mediaplayerReducer from "~/features/mediaplayerSlice";
+import { apiSlice } from "~/features/apiSlice";
 
 export const store = configureStore({
   reducer: {
-    mediaplayer: sliderReducer,
+    mediaplayer: mediaplayerReducer,
+    [apiSlice.reducerPath]: apiSlice.reducer,
   },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
