@@ -6,17 +6,17 @@ Create a media player skeleton that loads a playlist of slides (images and video
 
 Key Requirements (Simplified):
 
-	1.	Mock server request:
-	  •	Simulate a server request to fetch a playlist with 2-3 slides (both images and videos).
-	  •	Each slide will have the fields: id, duration, src, type (either image or video).
-	2.	Loader:
-	  •	Display a loading spinner while the playlist is being fetched from the mock server.
-	  •	Start the slideshow as soon as the playlist is loaded.
-	3.	Slideshow logic:
-	  •	Play the slides in sequence based on the provided duration.
-	  •	Loop back to the first slide after the last one is shown.
-	4.	Basic state management:
-	  •	Use Redux (for React) or Vuex/Pinia (for Vue) to manage the playlist and current slide index.
+	1. Mock server request:
+		- Simulate a server request to fetch a playlist with 2-3 slides (both images and videos).
+		- Each slide will have the fields: id, duration, src, type (either image or video).
+	2. Loader:
+		- Display a loading spinner while the playlist is being fetched from the mock server.
+		- Start the slideshow as soon as the playlist is loaded.
+	3. Slideshow logic:
+		- Play the slides in sequence based on the provided duration.
+		- Loop back to the first slide after the last one is shown.
+	4. Basic state management:
+ 		- Use Redux (for React) or Vuex/Pinia (for Vue) to manage the playlist and current slide index.
 
 JSON example:
 ```json
