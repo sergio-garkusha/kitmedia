@@ -1,16 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SlideData } from "../api/mockLoader";
+import { SlideData } from "~/features/apiSlice";
 
 interface SliderStore {
-  slides: SlideData[];
-  isLoading: boolean;
-  isError?: string | null;
+  playlist: SlideData[];
   currentSlide: number;
 }
 
 const initialState: SliderStore = {
-  slides: [],
-  isLoading: true,
+  playlist: [],
   currentSlide: 0,
 };
 
@@ -18,13 +15,13 @@ export const sliderSlice = createSlice({
   name: "slider",
   initialState,
   reducers: {
-    loadSlides: (state, action) => {
-      state.slides = action.payload;
-      state.isLoading = false;
-      state.isError = null;
+    loadPlaylist: (state, action) => {
+      console.log(action);
+
+      state.playlist = action.payload;
     },
     nextSlide: state => {
-      if (state.currentSlide < state.slides.length - 1) {
+      if (state.currentSlide < state.playlist.length - 1) {
         state.currentSlide += 1;
       } else {
         state.currentSlide = 0;
@@ -33,5 +30,5 @@ export const sliderSlice = createSlice({
   },
 });
 
-export const { loadSlides, nextSlide } = sliderSlice.actions;
+export const { loadPlaylist, nextSlide } = sliderSlice.actions;
 export default sliderSlice.reducer;

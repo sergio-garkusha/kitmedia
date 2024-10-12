@@ -1,41 +1,46 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
-import { SlideData, fetchPlaylist } from "~/api/mockLoader";
+import { useFetchPlaylistQuery } from "~/features/apiSlice";
 import { RootState } from "~/app/store";
-import { loadSlides, nextSlide } from "~/features/sliderSlice";
-
+import { loadPlaylist, nextSlide } from "~/features/mediaplayerSlice";
 import Slide from "./Slide";
 
-const MediaPlayer = () => {
+const MediaPlayer: React.FC = () => {
   const dispatch = useDispatch();
-  const { currentSlide, isLoading, slides } = useSelector((state: RootState) => state.mediaplayer);
+
+  const { data, isLoading, isError } = useFetchPlaylistQuery();
+  const { currentSlide, playlist } = useSelector((state: RootState) => state.mediaplayer);
 
   useEffect(() => {
-    fetchPlaylist().then((data: SlideData[]) => dispatch(loadSlides(data)));
-  }, []);
+    if (data) {
+      dispatch(loadPlaylist(data));
+    }
+  }, [data, dispatch]);
 
   useEffect(() => {
-    if (isLoading) {
+    if (isLoading || isError || !playlist.length) {
       return;
     }
 
+    const duration = playlist[currentSlide].duration * 1000;
     const interval = setInterval(() => {
       dispatch(nextSlide());
-    }, slides[currentSlide].duration * 1000);
+    }, duration);
+
     return () => clearInterval(interval);
-  });
+  }, [currentSlide, isLoading, isError, dispatch, playlist]);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
+  if (isError) {
+    return <div>Error loading playlist</div>;
+  }
+
   return (
     <section style={{ display: "flex", justifyContent: "center" }}>
-      <Slide
-        data={slides[currentSlide]}
-        duration={slides[currentSlide].duration}
-      />
+      {playlist.length > 0 && <Slide data={playlist[currentSlide]} />}
     </section>
   );
 };
