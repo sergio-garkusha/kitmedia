@@ -9,6 +9,12 @@ export interface SlideData {
 
 const mockPlaylistData: SlideData[] = [
   {
+    id: 0,
+    type: "video",
+    src: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Cat_lapping_water_off_ground_in_slow_motion.gk.webm",
+    duration: 4,
+  },
+  {
     id: 1,
     type: "image",
     src: "https://via.placeholder.com/800x600.png?text=Sample+Image+1",
@@ -25,6 +31,12 @@ const mockPlaylistData: SlideData[] = [
     type: "image",
     src: "https://via.placeholder.com/800x600.png?text=Sample+Image+2",
     duration: 4,
+  },
+  {
+    id: 4,
+    type: "image",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/June_odd-eyed-cat_cropped.jpg/640px-June_odd-eyed-cat_cropped.jpg",
+    duration: 3,
   },
 ];
 

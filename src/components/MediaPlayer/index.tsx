@@ -40,7 +40,12 @@ const MediaPlayer: React.FC = () => {
 
   return (
     <section style={{ display: "flex", justifyContent: "center" }}>
-      {playlist.length > 0 && <Slide data={playlist[currentSlide]} />}
+      {playlist.length > 0 && (
+        <Slide
+          data={playlist[currentSlide]}
+          duration={playlist[currentSlide].duration}
+        />
+      )}
     </section>
   );
 };
