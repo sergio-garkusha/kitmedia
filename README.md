@@ -48,9 +48,11 @@ JSON example:
 - Everything from the "Task" section is implemented.
 - Modern Redux architecture is used ([Redux Toolkit](https://redux-toolkit.js.org/))
 - Query is mocked using RTK Query ([@rtk-query](https://redux-toolkit.js.org/rtk-query/overview))
+- Added duration countdown to each slide for convenience
 
 ### How to run
 
+- Clone repo from GitHub `git clone git@github.com:sergio-garkusha/kitmedia.git`
 - Install dependencies: `npm i`
 - Start the development server: `npm run dev`
 - Open the browser and navigate to http://localhost:5173
