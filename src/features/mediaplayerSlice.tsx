@@ -16,8 +16,6 @@ export const sliderSlice = createSlice({
   initialState,
   reducers: {
     loadPlaylist: (state, action) => {
-      console.log(action);
-
       state.playlist = action.payload;
     },
     nextSlide: state => {
