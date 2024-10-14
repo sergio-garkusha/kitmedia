@@ -1,24 +1,25 @@
 ### Media Slideshow
 
-
 > Task:
-Create a media player skeleton that loads a playlist of slides (images and videos), plays them in sequence, and loops indefinitely using state management (Redux for React or Vuex/Pinia for Vue).
+> Create a media player skeleton that loads a playlist of slides (images and videos), plays them in sequence, and loops indefinitely using state management (Redux for React or Vuex/Pinia for Vue).
 
 Key Requirements (Simplified):
 
-	1. Mock server request:
-		- Simulate a server request to fetch a playlist with 2-3 slides (both images and videos).
-		- Each slide will have the fields: id, duration, src, type (either image or video).
-	2. Loader:
-		- Display a loading spinner while the playlist is being fetched from the mock server.
-		- Start the slideshow as soon as the playlist is loaded.
-	3. Slideshow logic:
-		- Play the slides in sequence based on the provided duration.
-		- Loop back to the first slide after the last one is shown.
-	4. Basic state management:
- 		- Use Redux (for React) or Vuex/Pinia (for Vue) to manage the playlist and current slide index.
+    1. Mock server request:
+    	- Simulate a server request to fetch a playlist with 2-3 slides (both images and videos).
+    	- Each slide will have the fields: id, duration, src, type (either image or video).
+    2. Loader:
+    	- Display a loading spinner while the playlist is being fetched from the mock server.
+    	- Start the slideshow as soon as the playlist is loaded.
+    3. Slideshow logic:
+    	- Play the slides in sequence based on the provided duration.
+    	- Loop back to the first slide after the last one is shown.
+    4. Basic state management:
+
+- Use Redux (for React) or Vuex/Pinia (for Vue) to manage the playlist and current slide index.
 
 JSON example:
+
 ```json
 [
   {
@@ -42,6 +43,16 @@ JSON example:
 ]
 ```
 
+### What's Inside
+
+- Everything from the "Task" section is implemented.
+- Modern Redux architecture is used ([Redux Toolkit](https://redux-toolkit.js.org/))
+- Query is mocked using RTK Query ([@rtk-query](https://redux-toolkit.js.org/rtk-query/overview))
+
+### How to run
+
+`npm i && npm run dev`
+
 ### React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -62,11 +73,11 @@ export default tseslint.config({
   languageOptions: {
     // other options...
     parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
       tsconfigRootDir: import.meta.dirname,
     },
   },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -75,11 +86,11 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from "eslint-plugin-react";
 
 export default tseslint.config({
   // Set the react version
-  settings: { react: { version: '18.3' } },
+  settings: { react: { version: "18.3" } },
   plugins: {
     // Add the react plugin
     react,
@@ -88,7 +99,7 @@ export default tseslint.config({
     // other rules...
     // Enable its recommended rules
     ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
+    ...react.configs["jsx-runtime"].rules,
   },
-})
+});
 ```

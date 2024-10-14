@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SlideData } from "~/api/mockLoader";
+import { SlideData } from "~/features/apiSlice";
 
 const Slide = ({ data, duration }: { data: SlideData; duration?: number }) => {
   const [countdown, setCountdown] = useState(duration || 0);
@@ -20,6 +20,7 @@ const Slide = ({ data, duration }: { data: SlideData; duration?: number }) => {
   if (data.type === "image") {
     slide = (
       <img
+        style={{ maxWidth: 800 }}
         src={data.src}
         alt="Slide"
       />
@@ -28,7 +29,6 @@ const Slide = ({ data, duration }: { data: SlideData; duration?: number }) => {
     slide = (
       <video
         width={800}
-        height={600}
         src={data.src}
         controls={false}
         muted
@@ -39,8 +39,8 @@ const Slide = ({ data, duration }: { data: SlideData; duration?: number }) => {
 
   return (
     <div>
-      {duration && <div style={{ margin: "0 0 5px 0" }}>{countdown} sec</div>}
       {slide}
+      {duration && <div>{countdown} sec</div>}
     </div>
   );
 };

@@ -12,12 +12,12 @@ const mockPlaylistData: SlideData[] = [
     id: 0,
     type: "video",
     src: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Cat_lapping_water_off_ground_in_slow_motion.gk.webm",
-    duration: 4,
+    duration: 5,
   },
   {
     id: 1,
     type: "image",
-    src: "https://via.placeholder.com/800x600.png?text=Sample+Image+1",
+    src: "https://upload.wikimedia.org/wikipedia/commons/8/80/A_dog_-_36797913216.jpg",
     duration: 5,
   },
   {
@@ -29,14 +29,14 @@ const mockPlaylistData: SlideData[] = [
   {
     id: 3,
     type: "image",
-    src: "https://via.placeholder.com/800x600.png?text=Sample+Image+2",
+    src: "https://upload.wikimedia.org/wikipedia/commons/7/77/A_dog_posing.jpg",
     duration: 4,
   },
   {
     id: 4,
     type: "image",
     src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/June_odd-eyed-cat_cropped.jpg/640px-June_odd-eyed-cat_cropped.jpg",
-    duration: 3,
+    duration: 4,
   },
 ];
 
