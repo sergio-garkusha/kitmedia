@@ -51,7 +51,9 @@ JSON example:
 
 ### How to run
 
-`npm i && npm run dev`
+- Install dependencies: `npm i`
+- Start the development server: `npm run dev`
+- Open the browser and navigate to http://localhost:5173
 
 ### React + TypeScript + Vite
 
